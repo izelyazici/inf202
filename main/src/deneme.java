@@ -1,6 +1,9 @@
 
-public class deneme {
-    public static void main(String args[]){
-      //  System.out.println ("Hello İzel");
+    public class deneme {
+        public static void main (String[] args) {
+
+        }
+
     }
-}
+
+
