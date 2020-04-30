@@ -21,6 +21,7 @@ public class mainpage extends JFrame {
     private JButton EKLEButton;
     private JTextField çalışanIdTextField;
     private JButton SİLButton;
+    private JButton GÜNCELLEButton;
     private static Connection con = null;
     private static Statement stmt = null;
     private static ResultSet resultSet = null;
@@ -61,8 +62,8 @@ public class mainpage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String çalışanid = çalışanIdTextField.getText();
                 try {
-                    Statement stmt =con.createStatement();
-                    stmt.executeUpdate("DELETE FROM Mitarbeiter WHERE id="+çalışanid+"");
+                    Statement stmt = con.createStatement();
+                    stmt.executeUpdate("DELETE FROM Mitarbeiter WHERE id=" + çalışanid + "");
                     con.commit();
 
                 } catch (SQLException ex) {
@@ -72,7 +73,27 @@ public class mainpage extends JFrame {
                 }
             }
         });
+        GÜNCELLEButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String ad = adTextField.getText();
+                String SOYAD = SOYADTextField.getText();
+                String emailadress = emailadressTextField.getText();
+                String LEVEL = LEVELTextField.getText();
+                String id = idTextField.getText();
+                String sertifikadate = sertifikadateTextField.getText();
+
+                try {
+                    Statement stmt = con.createStatement();
+                    stmt.executeUpdate("UPDATE Mitarbeiter SET  AD = '" + ad + "', SOYAD = '" + SOYAD + "', Emailadres = '" + emailadress + "' , LEVEL = '" + LEVEL + "' , Sertifikadate = '" + sertifikadate + "'  WHERE id = id ") ;
+                    con.commit();
+                } catch (SQLException a) {
+                    a.printStackTrace();
+                }
+            }
+        });
     }
+
 
 
                 /*String çalışanid = çalışanIdTextField.getText();
